@@ -1,84 +1,114 @@
-# **Introdução**
-Aqui estão os desafios da primeira fase do processo seletivo para os candidatos da ordem Jedi da Let’s Code by Ada para às vagas com o time de DevOps. 
+# **Desafio DevOps**
+
+Aqui estão os **desafios** da segunda fase do processo seletivo para os candidatos da ordem Jedi da **Let’s Code by Ada** para às vagas com o **time de DevOps**. 
 
 # **Descrição**
 Temos três desafios para serem entregues:
 
-* **Criação da infraestrutura base**
-* **Backend**
-* **FrontEnd**
+* **Infraestrutura**
+* **Back-end**
+* **Front-end**
 
-Não existe uma receita de bolo para atingir o objetivo do desafio, mas temos boas práticas que serão avaliadas junto aos códigos que deverão ser bem documentados.
-
-Como entregar estes desafio:
-Você deve criar um repositório em seu GitHub/GitLab, fazer o push da sua solução e enviar o link do repositório junto com seu LinkedIn e currículo (atualizados) para o nosso e-mail. Lembrando que a implementação deve ficar em pastas de forma estruturada no GitHub/GitLab para que tenhamos fácil identificação. É recomendado que você faça commits da sua aplicação seguindo o fluxo do GitFlow e com as especificações do Conventional Commits.
-
-Um diferencial é adicionar um conteúdo informativo que julgue ser útil ao projeto, como por exemplo uma descrição da aplicação no README com instruções de como executá-lo. 
-
-Lembre-se de considerar as melhores práticas como se fosse um ambiente de produção.
-
-### **Escopo**:
-A Let 's by Ada está migrando sua infraestrutura do On Premises para a cloud pública. Ela deseja utilizar todos os benefícios que a computação distribuída oferece como escalabilidade, elasticidade, redução de custos, segurança e rápido provisionamento. Atualmente a empresa conta com uma aplicação monolítica rodando em um único servidor e deseja segmentá-la em microserviços. Será necessário a criação de uma nova rede para hospedar as aplicações, segmentar a aplicação Let 's by Ada em frontend, backend e banco de dados em containers, provisionar os recursos utilizando IaC, promover alta disponibilidade e providenciar observability para a aplicação.
-
-Você pode escolher entre AWS, Azure ou GCP para prover o seu desafio.
-
-## **Desafio 00: Criação de infraestrutura base**
-
-Sua aplicação irá rodar na nuvem e precisa de uma VPC configurada corretamente para sua execução. Crie uma VPC com três subnets privadas e três subnets públicas. As privadas não podem ser acessadas diretamente da rede externa, as públicas devem estar expostas publicamente com os devidos cuidados . Sua rede será pequena, escolha um range de IP adequado e justifique-o. A VPC deve ser criada utilizando IaC. 
-
-## **Desafio 01: Backend**
-
-Necessidade
-Você recebeu acesso ao monolito da Let 's by Ada e é hora de segmentá-lo em microserviços. A aplicação deve oferecer três camadas isoladas: Frontend, Backend e Banco de dados.  Os serviços devem ser executados em servidores Linux e em containers utilizando o Kubernetes. 
-
-Kubernetes atualmente é a principal ferramenta de orquestração e deployment de containers utilizado no mundo, praticamente tornando-se um padrão para abstração de recursos de infraestrutura.
-
-Na Let 's by Ada todos os nossos serviços serão conteinerizados e distribuídos em clusters para cada ambiente, sendo assim é importante que as aplicações sejam adaptáveis para cada ambiente e haja controle via código dos recursos kubernetes através de seus manifestos.
-
-Recursos de infraestrutura em nuvem devem ser sempre criados utilizando gerenciadores de configuração, tais como CloudFormation, Terraform ou Ansible, garantindo que todo recurso possa ser versionado e recriado de forma facilitada. Neste desafio você deve escolher entre Cloudformation, Terraform ou Ansible para realizar o desafio.
-
-A comunicação entre os componentes deve ser realizada via HTTP e a utilização de filas no fluxo será um diferencial.  
-
-### **Objetivo**
-Criar uma instância Linux  no provedor cloud escolhido utilizando Cloudformation, Terraform ou Ansible. 
-Pré-instalar o Java e suas dependências na instância para que suba automaticamente a API da aplicação Let 's by Ada.
-A instância deve abrir somente às portas 80 e 443 para a internet. A porta SSH (22) deve estar acessível somente para um range IP definido.
-
-Escolha um banco de dados relacional de sua preferência e abra sua respectiva porta para conectar com a aplicação. O banco deve rodar em um PaaS do seu provedor cloud.
+Não existe uma receita de bolo para atingir o objetivo do desafio, as boas práticas serão avaliadas junto aos códigos que deverão ser bem documentados.
  
-## **Desafio 02: FrontEnd**
+# **Entrega**
 
-### **Necessidade:**
-Após migrar o backend da aplicação Let 's by Ada para a cloud é hora de trabalharmos com o frontend. Você deve pensar no melhor serviço cloud para executar o front pensando na escalabilidade, facilidade de manutenção e otimização de custos.  Na AWS uma boa escolha para este serviço pode ser o S3, mas fique à vontade para rodar essa aplicação em outro serviço.
+**Você deve:**
 
-### **Objetivo:**
-Realizar o deploy da aplicação frontend que irá consumir a API backend. A aplicação deve ser chamada via DNS, fique a vontade para usar um domínio de sua escolha.
+- criar um repositório em seu GitHub/GitLab;
+- fazer o push da sua solução e enviar o link do repositório junto com seu LinkedIn e currículo (atualizados) para a nossa recrutadora;
+- lembrando que a implementação deve ficar em pastas de forma estruturada no GitHub/GitLab para que tenhamos fácil identificação;
 
-### **Notas:**
-Dentro do repositório do desafio existem três pastas, backend, frontend e database  em cada pasta você irá encontrar um subdiretório app e um Dockerfile que constrói a imagem da aplicação, seu objetivo é:
+*Um diferencial é adicionar um conteúdo informativo que julgue ser útil ao projeto, como por exemplo uma descrição da aplicação no README com instruções de como executá-lo.*
+ 
+# **Escopo**:
 
-* Construir a imagem docker da aplicação;
-* Criar os manifestos de recursos kubernetes para rodar a aplicação (deployments, services, ingresses, configmap e qualquer outro que você considere necessário);
-* Criar um script para a execução do deploy em uma única execução;
-* A aplicação deve ter seu deploy realizado com uma única linha de comando em um cluster kubernetes local;
-* Todos os pods devem estar rodando;
-* A aplicação deve responder à uma URL específica configurada no ingress;
-* A aplicação sobe por default utilizando a porta 3000 e utiliza uma variável de ambiente $NAME.
+A *Let’s Code by Ada* está **migrando sua infraestrutura do On-Premises para a Cloud Pública**. 
 
+Atualmente a empresa conta com uma aplicação monolítica rodando em um único servidor e deseja segmentá-la em microserviços. 
 
-### **Extras(Diferencial):**
+Ela deseja utilizar todos os benefícios que a computação distribuída oferece como escalabilidade, elasticidade, redução de custos, segurança e rápido provisionamento. 
 
-* Utilizar HELM;
-* Divisão de recursos por namespaces;
-* Utilização de health check na aplicação;
-* Utilização de módulos do Terraform;
-* Realizar o deploy através de um pipeline CI/CD;
-* Montar um pequeno observability da infra da aplicação com uma ferramenta de sua escolha;
-* Fazer com que a aplicação exiba seu nome ao invés de "Que a força esteja com você!".
+Será necessário a **criação de uma infraestrutura para hospedar as aplicações, segmentar a aplicação monolítica Let’s Code by Ada em front-end, back-end e banco de dados**, lembrando de provisionar os recursos utilizando *IaC*, promover alta disponibilidade e providenciar observability minima para as aplicações.
+ 
+# **Introdução**
 
-### **Notas:**
+- *Você pode escolher entre os provedores **AWS, Azure ou GCP** para entregar o seu desafio;* 
+- *A terminologia utilizada na descrição do desafio refere-se ao provedor **AWS**;*
+- *Você deve escolher entre **Cloudformation** e **Terraform** para entregar os recursos de infra;*
+- *Os serviços devem ser executados em **servidores linux** e **containers kubernetes**.*
+
+Você recebeu acesso ao monolito da *Let’s Code by Ada* e é hora de segmentá-lo em microserviços. A aplicação deve oferecer três camadas isoladas: **Front-end, Back-end e Banco de Dados**. 
+
+Sua aplicação irá rodar na nuvem e precisa de uma **VPC** configurada corretamente para sua execução com **três subnets privadas** e **três subnets públicas**. As privadas não podem ser acessadas diretamente da rede externa, as públicas devem estar expostas publicamente com os devidos cuidados.
+
+Na *Let’s Code by Ada* todos os serviços serão conteinerizados e distribuídos em clusters para cada ambiente, sendo assim é importante que as aplicações sejam adaptáveis para cada ambiente e haja controle via código dos recursos kubernetes através de seus manifestos.
+
+# **Mão na massa!**
+
+## Infraestrutura
+- criar vpc
+- criar subnets
+- criar banco de dados relacional
+- criar cluster kubernetes
+- criar instancia linux
+
+## Back-end e Front-end
+
+Existem duas pastas, **backend** e **frontend**, nelas você irá encontrar o subdiretório **app** e um **dockerfile** que constrói a imagem da aplicação, seu objetivo é:
+
+- construir a imagem docker da aplicação;
+- criar os manifestos de recursos kubernetes para rodar a aplicação *(deployments, services, ingresses, configmap e qualquer outro que você considere necessário)*;
+- criar um script para a execução do deploy em uma única execução;
+- a aplicação deve ter seu deploy realizado com uma única linha de comando em um cluster kubernetes;
+- a aplicação deve responder à uma URL específica configurada no ingress;
+- a aplicação sobe por default utilizando a porta 3000 e utiliza uma variável de ambiente $NAME.
+
+Na pasta **backend** você irá encontrar o código da API Java. Você deve transformar esse código em um **Dockerfile** e colocar a aplicação em execução.
+ 
+A aplicação precisa se conectar a um banco de dados e a conexão ocorre através do arquivo **application.yml** na pasta **resources**. 
+
+Após apontar as variáveis de ambiente para o banco de dados corretamente, o Spring irá criar automaticamente a tabela **usuario** necessária para seguir com o desafio. 
+
+Você deve preencher as variáveis de ambiente da aplicação seguindo o exemplo abaixo:
+ 
+![Application Backend Java](https://s3-sa-east-1.amazonaws.com/lcpi/f0d632a4-3e51-4d7f-9c18-5c75a257dc51.PNG)
+ 
+Após configurar o **back-end** e o **banco de dados** é necessário criar um usuário para acessar a aplicação. Acesse o banco de dados pela forma que achar mais fácil e crie um usuário. Será necessário informar o **username** e **password**.
+ 
+![Tabela Usuário](https://s3-sa-east-1.amazonaws.com/lcpi/9e3c8f37-44bc-4964-8740-0ea422fdec07.PNG)
+
+Dentro do repositório na pasta **frontend** você irá encontrar o código da aplicação em Angular. Você deve transformar esse código em um **Dockerfile** e colocar a aplicação em execução. 
+
+Lembre-se que para instalar as dependências da aplicação basta aplicar o comando **npm install** e para executá-lo aplique o comando **ng serve**.
+ 
+Você deve alterar o apontamento para o **back-end** através do arquivo **environment.ts** na pasta **src/environments**.
+ 
+![Envitoment Angular](https://s3-sa-east-1.amazonaws.com/lcpi/a14aa61a-5197-445d-aef4-9c2ad64715ad.PNG)
+ 
+A aplicação deve ser chamada via DNS, fique a vontade para usar um domínio de sua escolha.
+ 
+Após configurar a aplicação, realize o deploy, deve ser exibido a tela de login:
+ 
+![Tela Login](https://s3-sa-east-1.amazonaws.com/lcpi/c92a1db7-fe23-43d7-84b0-ff7b3161e9c6.PNG)
+ 
+Acesse com o usuário/senha criados e deve ser exibido a tela home: 
+ 
+![Tela Home](https://s3-sa-east-1.amazonaws.com/lcpi/bec49cb2-03de-41b6-a5d6-88b9268c62b5.PNG)
+
+# **Extras (diferencial):**
+
+* utilizar HELM;
+* divisão de recursos por namespaces;
+* utilização de health check na aplicação;
+* realizar o deploy através de um pipeline CI/CD;
+* montar uma observability mínima da infra com uma ferramenta de sua escolha;
+* fazer com que a aplicação exiba seu nome ao invés de **"Que a força esteja com você!"**.
+
+# **Notas:**
+
 Pode-se utilizar tanto AWS, Azure ou GCP, não é preciso executar o teste em ambas, somente uma.
-Todos os recursos devem ser criados utilizando os créditos gratuitos da AWS/Azure/GCP.
-Não esquecer de destruir os recursos após criação e testes do desafio para não haver cobranças ou esgotamento dos créditos.
 
-**Sucesso no desafio!!**
+Todos os recursos devem ser criados utilizando os créditos gratuitos da AWS/Azure/GCP.
+
+Não esquecer de destruir os recursos após criação e testes do desafio para não haver cobranças ou esgotamento dos créditos.
