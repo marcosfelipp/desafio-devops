@@ -106,7 +106,7 @@ Acesse com o usuário/senha criados. Deve ser exibido a tela home:
 * utilização de health check na aplicação;
 * realizar o deploy através de um pipeline CI/CD;
 * montar um observability mínima da infraestrutura com uma ferramenta de sua escolha;
-* fazer com que a aplicação exiba seu nome ao invés de **"Que a força esteja com você!"**.
+* fazer com que a aplicação exiba seu nome.
 
 # **Notas:**
 
