@@ -53,7 +53,6 @@ Na **Let’s Code by Ada** todos os serviços serão **conteinerizados** e **dis
 - criar sg
 - criar banco de dados relacional
 - criar cluster kubernetes
-- criar instancia linux
 
 ## Back-end e Front-end
 
