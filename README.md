@@ -133,7 +133,7 @@ Buscamos os melhores candidatos para às vagas com o **time de DevOps**. Por iss
     - *exemplo: minimizar o SLA de uma cobrança*
 
 ### **Constuir um 'Desenho de Solução'**
-  - *utilizar a ferramenta [Diagrams.net](https://app.diagrams.net/) ou [Excalidraw](https://excalidraw.com/)*
+  - utilizar a ferramenta [Diagrams.net](https://app.diagrams.net/) ou [Excalidraw](https://excalidraw.com/)
   
 ### **Descrever o 'por que' dos serviço utilizados**
   - utilizar serviços **AWS** ou **Azure** ou **GCP**
