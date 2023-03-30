@@ -110,6 +110,40 @@ Acesse com o usuário/senha criados. Deve ser exibido a tela home:
 
 # **Notas:**
 
-Todos os recursos devem ser criados utilizando os créditos gratuitos da AWS/Azure/GCP.
+- Todos os recursos devem ser criados utilizando os créditos gratuitos da AWS/Azure/GCP.
 
-Não esquecer de destruir os recursos após criação e testes do desafio para não haver cobranças ou esgotamento dos créditos.
+- Não esquecer de destruir os recursos após criação e testes do desafio para não haver cobranças ou esgotamento dos créditos.
+
+# **Teoria**
+
+Buscamos os melhores candidatos para às vagas com o **time de DevOps**. Por isso, entendemos se você não tiver tempo para codificar o desafio. Portanto, esta é uma alternativa ao projeto de código, ou seja, você pode optar por **codificar o desafio** OU **realizar um estudo de caso** e **construir um desenho de solução** de um segmento modernizado.
+
+### **Escolher um segmento para modernização**
+  - pagamentos
+  - cobrança
+  - crédito
+  - investimento
+  - seguros
+  - outros
+    - *possibilidade de escolher um segmento que tenha familiaridade*
+
+### **Contextualizar o segmento**
+  - o que é?
+  - regra de negócio
+  - desafio
+    - *exemplo: minimizar o SLA de uma cobrança*
+
+### **Constuir um 'Desenho de Solução'**
+  - *utilizar a ferramenta [Diagrams.net](https://app.diagrams.net/) ou [Excalidraw](https://excalidraw.com/)*
+  
+### **Descrever o 'por que' dos serviço utilizados**
+  - utilizar serviços **AWS** ou **Azure** ou **GCP**
+    - exemplo: *AWS SNS para notificações por e-mail*
+    
+### **Aplicar Monitoramento e Observabilidade Minima**
+  - metrics
+  - logs
+  - trace
+  - alertas
+  - incidentes
+    - exemplo: *configurar e expor uma métrica do volume de pagamento; adicionar um alerta de disponibilidade da aplicação; importante informar as ferramentas utilizadas.*
