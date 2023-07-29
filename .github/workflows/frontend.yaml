@@ -1,0 +1,19 @@
+name: Ci of frontend
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-backend:
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      ecr_repository: frontend-letscodebyada
+      kube_namespace: apps
+      aws_cluster_name: eks-apps
+      application_path: ./frontend
+      k8s_manifest_name: frontend-manifest.yaml
+    secrets:
+      aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws_region: ${{ secrets.AWS_REGION }}
