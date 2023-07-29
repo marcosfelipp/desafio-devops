@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  deploy-backend:
+  deploy-frontend:
     uses: ./.github/workflows/deploy.yaml
     with:
       ecr_repository: frontend-letscodebyada
