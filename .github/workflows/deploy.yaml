@@ -58,11 +58,11 @@ jobs:
           docker build -t $ECR_REGISTRY/i8w3e9p0/${{ inputs.ecr_repository }}:latest ${{ inputs.application_path }}
           docker push $ECR_REGISTRY/i8w3e9p0/${{ inputs.ecr_repository }}:latest
 
-#      - name: Update KubeConfig
-#        shell: bash
-#        run: |
-#          aws eks update-kubeconfig --name ${{ inputs.aws_cluster_name }} --region=${{ secrets.aws_region }}
-#
-#      - name: Deploy To Cluster
-#        shell: bash
-#        run: kubectl apply -n ${{ inputs.kube_namespace }} -f ${{ inputs.application_path }}/${{ inputs.k8s_manifest_name }}
+      - name: Update KubeConfig
+        shell: bash
+        run: |
+          aws eks update-kubeconfig --name ${{ inputs.aws_cluster_name }} --region=${{ secrets.aws_region }}
+
+      - name: Deploy To Cluster
+        shell: bash
+        run: kubectl apply -n ${{ inputs.kube_namespace }} -f ${{ inputs.application_path }}/${{ inputs.k8s_manifest_name }}
