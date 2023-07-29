@@ -12,7 +12,7 @@ jobs:
       kube_namespace: apps
       aws_cluster_name: eks-apps
       application_path: ./backend
-      k8s_manifest_name: api-manifest.yaml
+      k8s_manifest_name: backend-manifest.yaml
     secrets:
       aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
