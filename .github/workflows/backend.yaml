@@ -24,7 +24,8 @@ jobs:
 
       - name: Create secret
         shell: bash
-        run: kubectl create secret generic database-secrets --from-literal=MYSQL_DB_HOST=${{ secrets.MYSQL_DB_HOST }} \
+        run: |
+          kubectl create secret generic database-secrets --from-literal=MYSQL_DB_HOST=${{ secrets.MYSQL_DB_HOST }} \
                                                             --from-literal=MYSQL_DB_USER=${{ secrets.MYSQL_DB_USER }} \
                                                             --from-literal=MYSQL_DB_PASS=${{ secrets.MYSQL_DB_PASS }} \
                                                             -n ${{ inputs.kube_namespace }
