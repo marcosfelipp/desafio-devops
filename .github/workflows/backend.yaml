@@ -19,10 +19,8 @@ jobs:
 
       - name: Update KubeConfig
         shell: bash
-        with:
-          aws_cluster_name: eks-apps
         run: |
-          aws eks update-kubeconfig --name ${{ inputs.aws_cluster_name }} --region=${{ secrets.aws_region }}
+          aws eks update-kubeconfig --name eks-apps --region=${{ secrets.aws_region }}
 
       - name: Create secret
         shell: bash
