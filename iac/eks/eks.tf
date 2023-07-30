@@ -5,8 +5,8 @@ module "eks" {
 
   cluster_name                   = local.cluster_name
   cluster_version                = "1.25"
-  vpc_id                         = module.vpc.vpc_id
-  subnet_ids                     = module.vpc.private_subnets
+  vpc_id                         = data.terraform_remote_state.vpc.outputs.vpc_id
+  subnet_ids                     = data.terraform_remote_state.vpc.outputs.vpc_private_subnets
   cluster_endpoint_public_access = true
 
   eks_managed_node_group_defaults = {
@@ -18,12 +18,12 @@ module "eks" {
 
   eks_managed_node_groups = {
     instances1 = {
-      subnet_ids                 = slice(module.vpc.private_subnets, 0, 1)
+      subnet_ids                 = slice(data.terraform_remote_state.vpc.outputs.vpc_private_subnets, 0, 2)
       name                       = "node-group-apps"
-      instance_types             = ["t3.micro"]
+      instance_types             = ["t3a.small"]
       min_size                   = 2
-      max_size                   = 4
-      desired_size               = 3
+      max_size                   = 2
+      desired_size               = 2
       disk_size                  = 20
       use_custom_launch_template = false
     }
