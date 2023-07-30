@@ -42,3 +42,22 @@ spec:
   type: ClusterIP
   selector:
     app.kubernetes.io/name: app-backend
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: apps
+  name: ingress-backend
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: service-backend
+                port:
+                  number: 80
