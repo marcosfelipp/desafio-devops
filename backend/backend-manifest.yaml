@@ -25,6 +25,9 @@ spec:
           name: app-backend
           ports:
             - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: database-secrets
 ---
 apiVersion: v1
 kind: Service

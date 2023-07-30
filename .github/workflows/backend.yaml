@@ -5,6 +5,29 @@ on:
     branches: [main]
 
 jobs:
+  create-secrets:
+    name: Secret Creation
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.aws_access_key_id }}
+          aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
+          aws-region: ${{ secrets.aws_region }}
+
+      - name: Update KubeConfig
+        shell: bash
+        run: |
+          aws eks update-kubeconfig --name ${{ inputs.aws_cluster_name }} --region=${{ secrets.aws_region }}
+
+      - name: Create secret
+        shell: bash
+        run: kubectl create secret generic database-secrets --from-literal=MYSQL_DB_HOST=${{ secrets.MYSQL_DB_HOST }} \
+                                                            --from-literal=MYSQL_DB_USER=${{ secrets.MYSQL_DB_USER }} \
+                                                            --from-literal=MYSQL_DB_PASS=${{ secrets.MYSQL_DB_PASS }} \
+                                                            -n ${{ inputs.kube_namespace }
   deploy-backend:
     uses: ./.github/workflows/deploy.yaml
     with:
